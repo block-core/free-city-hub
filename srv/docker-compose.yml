@@ -19,8 +19,9 @@ services:
       LETSENCRYPT_EMAIL: admin@blockcore.net
       HUB_DATABASE: mongodb://hub-db:27017
       PORT: 5050
-      ADMIN: '123,444'
     restart: unless-stopped
+    env_file:
+      - .env
     depends_on:
       hub-db:
         condition: service_healthy
